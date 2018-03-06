@@ -49,5 +49,6 @@ func main() {
     msg = append(msg, Msg{ID: "2", Msg: "SECOND_PONG_FROM_GOLANG"})
     router.HandleFunc("/api/msg/", GetMessages).Methods("GET")
     router.HandleFunc("/api/msg/{id}/", GetMessage).Methods("GET")
+    router.PathPrefix("/static/").Handler(http.StripPrefix("/static/", http.FileServer(http.Dir("frontend/dist"))))
     log.Fatal(http.ListenAndServe(":8080", router))
 }
