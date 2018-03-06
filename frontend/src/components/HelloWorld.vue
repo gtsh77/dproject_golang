@@ -18,7 +18,7 @@ export default {
     }
   },
   created() {
-    axios.get(`http://138.68.82.101:8000/api/msg/`)
+    axios.get(`http://138.68.82.101:8080/api/msg/`)
     .then(response => {
       this.msgs = response.data
     })
